@@ -37,55 +37,54 @@
 <a href='#' id='geolocate' class='ui-button'>Find me</a>
 
 <script>
-var map;
+L.mapbox.accessToken = 'pk.eyJ1IjoiYW51bS1qYXZlZDE1IiwiYSI6Ijk5YWVkNTkyNTY1ODI1YTIxOWJmYjFjM2Y3YzMwZGU2In0.qboqAZYIzM-H3vsUVyqKhQ#3';
+var geolocate = document.getElementById('geolocate');
+var map = L.mapbox.map('map', 'mapbox.streets');
 
-function initialize() {
-  var mapOptions = {
-    zoom: 6
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+var myLayer = L.mapbox.featureLayer().addTo(map);
 
-  // Try HTML5 geolocation
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
+// This uses the HTML5 geolocation API, which is available on
+// most mobile browsers and modern browsers, but not in Internet Explorer
+//
+// See this chart of compatibility for details:
+// http://caniuse.com/#feat=geolocation
+if (!navigator.geolocation) {
+    geolocate.innerHTML = 'Geolocation is not available';
+} else {
+    geolocate.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        map.locate();
+    };
+}
 
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Location found using HTML5.'
-      });
+// Once we've got a position, zoom and center the map
+// on it, and add a single marker.
+map.on('locationfound', function(e) {
+    map.fitBounds(e.bounds);
 
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
+    myLayer.setGeoJSON({
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [e.latlng.lng, e.latlng.lat]
+        },
+        properties: {
+            'title': 'Here I am!',
+            'marker-color': '#ff8888',
+            'marker-symbol': 'star'
+        }
     });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
-}
 
-function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
+    // And hide the geolocation button
+    geolocate.parentNode.removeChild(geolocate);
+});
 
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(60, 105),
-    content: content
-  };
-
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
+// If the user chooses not to allow their location
+// to be shared, display an error message.
+map.on('locationerror', function() {
+    geolocate.innerHTML = 'Position could not be found';
+});
 </script>
 </body>
 </html>
