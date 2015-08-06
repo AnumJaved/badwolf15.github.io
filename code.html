@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+
+<title name="title"></title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="cordova-1.6.0.js"></script>
+<div id="map"></div>
+	<script>
+		L.mapbox.accessToken = 'pk.eyJ1IjoiYW51bS1qYXZlZDE1IiwiYSI6Ijk5YWVkNTkyNTY1ODI1YTIxOWJmYjFjM2Y3YzMwZGU2In0.qboqAZYIzM-H3vsUVyqKhQ#3';
+		var geolocate = document.getElementById('geolocate');
+		var map = L.mapbox.map('map', 'mapbox.streets');
+	</script>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/place/search/json?location=38.9630021,-76.9081746&radius=30000&keyword=women%27s%20shelter&key=AIzaSyBIjnEZCEPe_GP4hETPqY4of-BCq88ZFQw"></script>
+<script type="text/javascript">
+
+
+// Determine support for Geolocation and get location or give error
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(displayPosition, errorFunction);
+} else {
+    alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+}
+
+// Success callback function
+function displayPosition(pos) {
+    var mylat = pos.coords.latitude;
+    var mylong = pos.coords.longitude;
+    //Load Google Map
+    var latlng = new google.maps.LatLng(mylat, mylong);
+    var myOptions = {
+    zoom: 16,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+};
+
+var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+// Places
+var request = {
+    location: latlng,
+    radius: '20000',
+    name: ['whatever']
+};
+
+var service = new google.maps.places.PlacesService(map);
+service.search( request, callback );
+
+function callback(results, status) 
+{
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            createMarker(results[i]);
+            }
+        }
+    }
+
+    function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+        });
+        }
+
+var marker = new google.maps.Marker({
+     position: latlng, 
+     map: map, 
+     title:"You're here"
+ });
+
+
+}
+
+// Error callback function
+function errorFunction(pos) {
+    alert('It seems like your browser or phone has blocked our access to viewing your location. Please enable this before trying again.');
+}
+</script>
+</head>
+<body>
+    <div id="map_canvas"></div>
+</body>
