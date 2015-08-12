@@ -148,7 +148,7 @@ body #button li a {
 		<h2><center>Pick a language:</center></h2>
 		<form><center>
 		<a href = "#secondPage"><INPUT type="button" value="English" name="button1"></a><br>
-		<a href = "#spanishPage"><INPUT type="button" value="Spanish" name="button2"></a>
+		<a href = "spanishPage.html"><INPUT type="button" value="Spanish" name="button2"></a>
 		</center></form>
 	</div><!-- /content -->
 
@@ -869,6 +869,299 @@ src="http://www.youtube.com/v/XGSy3_Czz8k"></center>
 </div><!-- /page -->
 
 
+
+
+
+<!--Spanish Page-->
+
+
+
+
+<!-- Start of first page -->
+
+
+
+<div data-role="page" id="secondPageSpan">
+
+	<div data-role="header">
+		<h1>Set-Up</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<form>
+			<center>Crea una nombre usario:</center><br>
+			
+		<center><input id = "username" type="text" name="username" onchange="addUsername(#username)"></center>
+			<br>
+			</form>
+			<a href = "#3Page"><INPUT type="button" value="Submete" name="button1"></a><br>
+			
+	</div><!-- /content -->
+
+	
+</div><!-- /page -->
+
+<!-- Start of second page -->
+<div data-role="page" id="3Page">
+
+	<div data-role="header">
+		<h1>SetUp</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	
+		
+			</form>
+		<label for="select-choice-a" class="select"><center>Escoje una pregunta de seguridad</center></label>
+		<select name="select-choice-a" id="options" data-native-menu="false">
+				<option value="Best Friend">&#191;Qu&#233; era el nombre de tu mejor amigo en la escuela primaria?</option>
+				<option value="Food">&#191;Qu&#233; comes cuando est&#225;s frustrada o triste?</option>
+				<option value="Kiss">&#191;Qui&#233;n fue la primera persona que besaste</option>
+				<option value="Memory">&#191;Qu&#233; es tu primera memoria de tu ni&#241;ez?</option>
+			
+		</select><br>
+		<form>
+			<center>Respuesta:</center><br>
+		<center><input type="textbox"  height="100" name="answer"></center>
+			<br>
+			</form>
+			<a href = "#4Page"><INPUT type="button" value="Submete" name="button1"></a><br>
+			
+		
+	</div><!-- /content -->
+
+	
+</div><!-- /page -->
+<!-- Start of third page -->
+<div data-role="page" id="4Page">
+
+	<div data-role="header">
+		<h1>SetUp</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	<h2><center>Escoje una esquema:</center></h2>
+		<form><center>
+		<a href = "#5Page"><INPUT type="button" value="Pizza" name= "button3"></a><br>
+		<a href = "#5Page"><INPUT type="button" value="Ejercicio" name= "button4"></a><br>
+		<a href = "#5Page"><INPUT type="button" value="Noticias" name="button5"></a>
+		</center></form>
+			
+	</div><!-- /content -->
+
+</div><!-- /page -->
+<div data-role="page" id="5Page">
+
+	<div data-role="header">
+		<h1>SetUp</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	<form>
+			<center>Por favor entra la direcci&#243;n de tu casa por razones de seguridad:</center><br>
+		<center><input type="textbox"  height="100" name="address"></center>
+		   
+			<br>
+			</form>
+			<a href = "#6Page"><INPUT type="button" value="Submete" name="button1"></a><br>
+			
+			
+	</div><!-- /content -->
+
+</div><!-- /page -->
+<div data-role="page" id="6Page">
+
+	<div data-role="header">
+		<h1>SetUp: OPTIONAL</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	<form>
+			<center>Sube una foto de tu abusor:</center><br>
+		<input type="file" onchange="previewFile()"><br>
+		<img id ="myImg" src="" height="200" alt="Image preview...">
+		   
+			<br>
+			</form>
+         <button onclick="sendMail(); return false">Submete</button>
+			<a href = "#7Page"><INPUT type="button" value="Next" name="button1"></a><br>
+			
+			
+	</div><!-- /content -->
+
+	<!-- /footer -->
+</div><!-- /page -->
+
+<div data-role="page" id="7Page">
+
+	<div data-role="header">
+		<h1>SetUp</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	<form>
+			<center>Instruciones: &#161;ESTE VIDEO SOLO SE PODRA VER UNA VEZ!</center><br>
+<body>
+
+
+
+<div style="text-align: center;">
+<video width="400" controls>
+  <source src="SpanishIntro.mp4" type="video/mp4">
+</video>
+</div>
+
+
+<FORM>
+<a href = "#LoginPage1"><INPUT Type="BUTTON" Value="Terminaste SetUp!"></a>
+</FORM>
+</body>					
+</div><!-- /content -->
+
+</div><!-- /page -->
+
+<!-- Start of first page -->
+<div data-role="page" id="LoginPage1">
+
+	<div data-role="header">
+		<h1>Entra la applicaction mediante tu accuenta</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	
+		<form>
+          Nombre de usario: <input type="text" name="fname">
+		<a href = "#HomePage1"><input type="submit" value="Submete"></a>
+		</form>
+			
+
+			<table><tr><td><a href="tel: 2406787097"><img id= "pizza" src="https://www.colourbox.com/preview/3524436-vector-italian-pizza-on-white-background.jpg" width="100" /></a></td></tr></table>
+             
+	</div><!-- /content -->
+</div><!-- /page -->
+
+<div data-role="page" id="HomePage1">
+
+	<div data-role="header">
+		<h1>P&#225;gina Principal</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<div id="button">
+  <ul>
+    <li><a href="#places1">Pizzarias</a></li>
+    <li><a href="#help1">&#191;Ayuda?</a></li>
+    <li><a href="#settings1">Tu Accuenta</a></li>
+	<table><tr><td><a href="tel: 2406787097"><img id= "pizza" src="https://www.colourbox.com/preview/3524436-vector-italian-pizza-on-white-background.jpg" width="200" height ="200"  /></a></td></tr></table>
+    
+  </ul>
+</div>
+	</div><!-- /content -->	
+</div><!-- /page -->
+
+
+<div data-role="page" id="settings1">
+
+	<div data-role="header">
+		<h1>Tu Acuenta</h1>
+				<table><tr><td><div class="center-wrapper" id="center"><a href="tel: 2406787097"><img id="pizza" src="https://www.colourbox.com/preview/3524436-vector-italian-pizza-on-white-background.jpg" align="center" width="50" height ="50"/></a></div></td></tr></table>
+	</div><!-- /header -->
+
+	<div data-role="content" style="text-align : center;">
+		<h1><center>Perfil</center></h1>
+
+		<a href = "#secondPageSpan"><INPUT type="button" value="Cambia el nombre du usario de tu acuenta" name="button1"></a><br>
+		<a href = "#6Page"><INPUT type="button" value="Suba una foto" name="button1"></a><br>
+		<a href = "#5Page"><INPUT type="button" value="Cambia la direcci&#243;n de tu casa" name="button1"></a><br>
+		<a href = "#AskPage1"><INPUT type="button" value="Borra tu acuenta"button2"></a>
+	</div><!-- /content -->
+</div><!-- /page -->
+
+
+<div data-role="page" id="AskPage1">
+
+	<div data-role="header">
+		<h1>Settings</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<h1><center><strong>&#161;Responde la Pregunta!</strong></center></h1>
+		<button onclick="cow()">Ense&#241;a la pregunta.</button>
+		
+		<form>
+          Respuesta: <input type="text" name="fname">
+		<a href = "#HomePage1"><input type="submit" value="Submete"></a>
+		</form>
+		
+		<p id="change"></p>
+		
+	</div><!-- /content -->
+</div><!-- /page -->
+
+<div data-role="page" id="help1">
+
+	<div data-role="header">
+		<h1>Ayuda</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<h1>Informaci&#243;n sobre la Pizza</h1>
+
+<FORM>
+<INPUT Type="BUTTON" Value="Pizza Hut" Onclick="window.location.href='http://www.helpguide.org/articles/abuse/domestic-violence-and-abuse.htm'"> 
+</FORM>
+
+<p>Pizza Hut es la mejor compa&#241;&#237a de pizza en general.</p>
+
+<FORM>
+<INPUT Type="BUTTON" Value="Domino's" Onclick="window.location.href='http://www.womenhelpingwomen.org/what-is-abuse/teen-dating-violence/'"> 
+</FORM>
+
+<p> Domino's es la mejor compa&#241;&#237a de pizza para jovenes que estan de novios.</p>
+
+<FORM>
+<INPUT Type="BUTTON" Value="Papa John's" Onclick="window.location.href='http://www.webmd.com/balance/features/help-for-battered-men?page=3'"> 
+</FORM>
+
+<p>Papa John's es la mejor compa&#241;&#237a de pizza para hombres.</p>
+
+<FORM>
+<INPUT Type="BUTTON" Value="CiCi's Pizza" Onclick="window.location.href='http://www.americanbar.org/content/dam/aba/administrative/domestic_violence1/publications/ABA_LGBT-rights_Final.authcheckdam.pdf'"> 
+</FORM>
+
+<p>CiCi's pizza es la mejor compa&#241;&#237a de pizza para homosexuales.</p>
+
+<FORM>
+<INPUT Type="BUTTON" Value="Sbarro" Onclick="window.location.href='http://www.burstingthebubble.com/'"> 
+</FORM>
+
+<p>Sbarro es la mejor compa&#241;&#237a de pizza para hijos.</p>
+
+<FORM>
+<INPUT Type="BUTTON" Value="Little Caeser's" Onclick="window.location.href='http://www.thehotline.org/help/help-for-friends-and-family/'"> 
+</FORM>
+
+<p>Little Caeser's es la mejor compa&#241;&#237a de pizza para amigos y familia.</p>
+
+
+
+		
+	</div><!-- /content -->
+</div><!-- /page -->
+<div data-role="page" id="places1">
+
+	<div data-role="header">
+		<h1>Lugares de Pizza</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">
+	<center>
+<p>&#161;Oprime el bot&#242;n de abajo para encontrar lugares de pizza cerca a usted!</p>
+<button onclick="getLocation(); location.href='map.html';">Encuentra Lugares de Pizza</button>
+</center>
+		
+	</div><!-- /content -->
+</div><!-- /page -->
 
 
 </body>
